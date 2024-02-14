@@ -1,5 +1,6 @@
 package nl.novi.techiteasy.controllers;
 
+import nl.novi.techiteasy.repositories.TelevisionRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +10,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/televisions")
 @RestController
 public class TelevisionsController {
+    private final TelevisionRepository televisionRepository;
+
+    public TelevisionsController(TelevisionRepository televisionRepository) {
+        this.televisionRepository = televisionRepository;
+    }
+
     @GetMapping()
     public ResponseEntity<String> getAllTelevisions(){
         return ResponseEntity.ok("televisions");
