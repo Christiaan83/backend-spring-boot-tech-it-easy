@@ -1,41 +1,30 @@
-package nl.novi.techiteasy.models;
+package nl.novi.techiteasy.Dtos;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.validation.constraints.*;
 
-@Entity
-public class Television {
-
-    @Id
-    @GeneratedValue
-    private Long id;
-
+public class TelevisionInputDto {
+    @NotNull(message = "Type is required") // Type moet ingevuld verplicht worden in je JSON, je krijgt een message als je dit niet doet.
     private String type;
+    @NotNull(message = "Brand is required")
     private String brand;
+    @Size(max = 20, message = "Name must be between 0-20 characters") // maximale lengte van de string, min is automatisch 0.
     private String name;
+    @Positive(message = "Price must be higher than zero")
     private Double price;
-    private  Double availableSize;
+    private Double availableSize;
     private Double refreshRate;
     private String screenType;
     private String screenQuality;
     private Boolean smartTv;
-    private  Boolean wifi;
+    private Boolean wifi;
     private Boolean voiceControl;
-    private  Boolean hdr;
+    @AssertTrue(message = "All television must be hdr minimum")
+    private Boolean hdr;
     private Boolean bluetooth;
-    private  Boolean ambiLight;
+    private Boolean ambiLight;
+    @PositiveOrZero(message = "Television cannot have negative stock")
     private Integer originalStock;
-    private  Integer sold;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    private Integer sold;
 
     public String getType() {
         return type;

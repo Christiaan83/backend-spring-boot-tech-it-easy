@@ -1,33 +1,24 @@
-package nl.novi.techiteasy.models;
+package nl.novi.techiteasy.Dtos;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+public class TelevisionDto {
 
-@Entity
-public class Television {
-
-    @Id
-    @GeneratedValue
     private Long id;
-
     private String type;
     private String brand;
     private String name;
     private Double price;
-    private  Double availableSize;
+    private Double availableSize;
     private Double refreshRate;
     private String screenType;
     private String screenQuality;
     private Boolean smartTv;
-    private  Boolean wifi;
+    private Boolean wifi;
     private Boolean voiceControl;
-    private  Boolean hdr;
+    private Boolean hdr;
     private Boolean bluetooth;
-    private  Boolean ambiLight;
+    private Boolean ambiLight;
     private Integer originalStock;
-    private  Integer sold;
+    private Integer sold;
 
     public Long getId() {
         return id;
